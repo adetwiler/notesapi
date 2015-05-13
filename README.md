@@ -1,4 +1,6 @@
-# Install / Run Notes API
+# Notes API
+
+### Installation
 - Install [Node.js]
 - Install NPM Packages
   - ```npm install```
@@ -8,6 +10,8 @@
 - Start Node Server
   - **Mac** - ```sudo node server.js```
   - **Windows** - ```node server.js```
+  
+### API Documentation
 - Create Note
   - ```POST /api/notes```
   - Example:
@@ -28,8 +32,15 @@
   - ```GET /api/notes?query=search```
   - Example:
     - ```curl -i -H "Content-Type: application/json" -X GET http://localhost/api/notes?query=milk```
+    
+### Configuration
+To change default settings:
+- Edit config.js
+  - Configure port to desired port (default 80)
+  - Configure mongo uri to desired uri (default mongodb://localhost:27017)
+  - Configure mongo db to desired db name (default notes)
 
-### Questions: 
+### Questions
 - How well does your note-searching-api scale or not scale? How would you make your search more efficient?
   - The note searching API uses a full-text index search, which is scalable, but does not perform as well
   as a tool made specifically for searching. MongoDB will eventually slow down when the indexes get larger,
